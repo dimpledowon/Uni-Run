@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 // PlayerController는 플레이어 캐릭터로서 Player 게임 오브젝트를 제어한다.
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour 
+{
     public AudioClip deathClip; // 사망시 재생할 오디오 클립
     public float jumpForce = 700f; // 점프 힘
 
@@ -13,14 +14,16 @@ public class PlayerController : MonoBehaviour {
     private Animator animator; // 사용할 애니메이터 컴포넌트
     private AudioSource playerAudio; // 사용할 오디오 소스 컴포넌트
 
-    private void Start() {
+    private void Start() 
+    {
         // 게임 오브젝트로부터 사용할 컴포넌트들을 가져와 변수에 할당
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
     }
 
-    private void Update() {
+    private void Update() 
+    {
         if (isDead)
         {
             // 사망시 처리를 더 이상 진행하지 않고 종료
@@ -50,7 +53,8 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("Grounded", isGrounded);
     }
 
-    private void Die() {
+    private void Die() 
+    {
         // 애니메이터의 Die 트리거 파라미터를 셋
         animator.SetTrigger("Die");
 
@@ -69,7 +73,8 @@ public class PlayerController : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.tag == "Dead" && !isDead)
         {
             // 충돌한 상대방의 태그가 Dead이며 아직 사망하지 않았다면 Die() 실행
@@ -77,7 +82,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
         // 어떤 콜라이더와 닿았으며, 충돌 표면이 위쪽을 보고 있으면
         if (collision.contacts[0].normal.y > 0.7f)
         {
@@ -87,7 +93,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
+    private void OnCollisionExit2D(Collision2D collision) 
+    {
         // 어떤 콜라이더에서 떼어진 경우 isGrounded를 false로 변경
         isGrounded = false;
     }
