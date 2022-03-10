@@ -63,4 +63,14 @@ public class GameManager : MonoBehaviour
         isGameover = true;
         gameoverUI.SetActive(true);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
