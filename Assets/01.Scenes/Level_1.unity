@@ -940,7 +940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &775664070
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,7 +1399,7 @@ SpriteRenderer:
   m_SortingLayerID: 243778161
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24770088dedc9e84b97afaa1c612d506, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2115d884ab0290c4aa3eacfdfa77cabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1483,7 +1483,7 @@ SpriteRenderer:
   m_SortingLayerID: 243778161
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24770088dedc9e84b97afaa1c612d506, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2115d884ab0290c4aa3eacfdfa77cabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2322,6 +2322,9 @@ MonoBehaviour:
   isGameover: 0
   scoreText: {fileID: 861774577}
   gameoverUI: {fileID: 1026677027}
+  menuPanel: {fileID: 1856985677}
+  hpCount: 2
+  hpText: {fileID: 1956286112}
 --- !u!4 &1903824982
 Transform:
   m_ObjectHideFlags: 0

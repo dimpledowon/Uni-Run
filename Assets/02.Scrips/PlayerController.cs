@@ -80,6 +80,16 @@ public class PlayerController : MonoBehaviour
             // 충돌한 상대방의 태그가 Dead이며 아직 사망하지 않았다면 Die() 실행
             Die();
         }
+        else if(other.tag == "Thorn" && !isDead)
+        {
+            /*if (GameManager.instance.hpCount <= 0)
+            {
+                Die();
+                return;
+            }
+            GameManager.instance.Crash();*/
+            if (GameManager.instance.Crash() == true) Die();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 

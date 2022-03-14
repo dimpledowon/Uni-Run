@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public bool isGameover = false; // 게임오버 상태
     public Text scoreText; // 점수를 출력할 UI 텍스트
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI 게임 오브젝트
+    public GameObject menuPanel;
+
+    public int hpCount = 2;
+    public Text hpText;
 
     private int score = 0; // 게임점수
 
@@ -34,6 +38,11 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("씬에 두 개 이상의 게임 매니저가 존재합니다!");
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        hpText.text = hpCount.ToString();
     }
     void Update()
     {
@@ -72,5 +81,12 @@ public class GameManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public bool Crash()
+    {
+        hpText.text = ""+--hpCount;
+
+        return hpCount <= 0 ? true : false;
     }
 }
