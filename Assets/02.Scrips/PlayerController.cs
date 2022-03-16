@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // 사용할 애니메이터 컴포넌트
     private AudioSource playerAudio; // 사용할 오디오 소스 컴포넌트
 
+    public GameObject hitPaticle;
+
     private void Start() 
     {
         // 게임 오브젝트로부터 사용할 컴포넌트들을 가져와 변수에 할당
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.tag == "Thorn" && !isDead)
         {
+            hitPaticle.SetActive(true);
             /*if (GameManager.instance.hpCount <= 0)
             {
                 Die();
@@ -90,6 +93,11 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.Crash();*/
             if (GameManager.instance.Crash() == true) Die();
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        hitPaticle.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
